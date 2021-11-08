@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react'
-import useMqtt from '../lib/useMqtt'
+import { useState, useRef, useEffect } from 'react';
+import useMqtt from '../lib/useMqtt';
 
 export default function Home() {
   const [incommingMessages, setIncommingMessages] = useState([])
@@ -9,6 +9,7 @@ export default function Home() {
   const clearMessages = () => {
     setIncommingMessages(() => [])
   }
+
 
   const incommingMessageHandlers = useRef([
     {
@@ -40,7 +41,7 @@ export default function Home() {
       return
     }
 
-    client.publish('topic1', '1st message from component')
+    client.publish('topic1', '1st message from component');
   }
 
   return (
